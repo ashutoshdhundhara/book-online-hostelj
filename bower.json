@@ -1,0 +1,21 @@
+{
+  "name": "book-online-hostelj",
+  "description": "Online room booking portal for HostelJ, TU",
+  "main": "src/api/api.js",
+  "authors": [
+    "Ashutosh Dhundhara <ashutoshdhundhara@yahoo.com>"
+  ],
+  "license": "",
+  "moduleType": [
+    "globals"
+  ],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "name": "book-online-hostelj",
+  "version": "1.0.0",
+  "description": "Online room booking portal for HostelJ, TU",
+  "main": "src/server/server.js",
+  "scripts": {
+    "start": "node src/server/bin/www",
+    "test": "npm test"
+  },
+  "author": "",
+  "license": "",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}
