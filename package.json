@@ -4,7 +4,7 @@
   "description": "Online room booking portal for HostelJ, TU",
   "main": "src/server/app.js",
   "scripts": {
-    "start": "NODE_PATH=src/server nodemon src/server/bin/www",
+    "start": "NODE_PATH=src/server NODE_ENV=development nodemon src/server/bin/www",
     "test": ""
   },
   "author": "",
