@@ -1,10 +1,10 @@
 {
-  "name": "book-online-hostelj",
+  "name": "capital",
   "version": "1.0.0",
-  "description": "Online room booking portal for HostelJ, TU",
-  "main": "src/server/app.js",
+  "description": "onlinehostej app's backend REST Api",
+  "main": "src/app.js",
   "scripts": {
-    "start": "NODE_PATH=src/server NODE_ENV=development nodemon src/server/bin/www",
+    "start": "NODE_PATH=src/ NODE_ENV=development nodemon src/bin/www",
     "test": ""
   },
   "author": "",
