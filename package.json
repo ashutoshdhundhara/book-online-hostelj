@@ -1,7 +1,7 @@
 {
   "name": "capital",
   "version": "1.0.0",
-  "description": "onlinehostej app's backend REST Api",
+  "description": "onlinehostelj app's backend REST Api",
   "main": "src/app.js",
   "scripts": {
     "start": "NODE_PATH=src/ NODE_ENV=development nodemon src/bin/www",

@@ -19,7 +19,7 @@ models.sequelize
         server.on('listening', onListening);
     })
     .catch(function (ex) {
-        logger.fatal(ex, "Sequelize sync failed.");
+        logger.fatal(ex, "Sequelize sync failed. Verify your MySQL credentials and make sure HostelJ database exists.");
         process.exit(1);
     });
 
