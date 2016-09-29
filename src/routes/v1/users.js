@@ -1,14 +1,16 @@
 var express = require("express");
 var router = express.Router();
-var models = require("models");
+
+import UserService from 'services/user'
+
+var userService = new UserService()
 
 router.get('/', function (req, res) {
-    models.User.findAll()
-        .then(function (users) {
-            res.setHeader('content-type', 'application/json');
-            res.statusCode = 200;
-            res.send(users);
-        });
+    userService.getAll(req, res)
+});
+
+router.post('/', function (req, res) {
+    userService.save(req, res)
 });
 
 module.exports = router;

@@ -1,0 +1,17 @@
+{
+    "SERVER_ERROR": "Server encountered an internal error"
+    "USER_EXISTS": "User already exists",
+    "INVALID_ROLLNO": "Roll number is not valid",
+    "ROLLNO_NOT_INTEGER": "Roll number must be an integer",
+    "INVALID_FIRSTNAME": "Invalid Firstname",
+    "EMPTY_FIRSTNAME": "Firstname cannot be empty",
+    "INVALID_LASTNAME": "Invalid Lastname",
+    "EMPTY_LASTNAME": "Lastname cannot be empty",
+    "INVALID_BRANCH": "Invalid Branch code",
+    "EMPTY_BRANCH": "Branch cannot be null or empty",
+    "INVALID_MOBILE": "Invalid Mobile number",
+    "EMPTY_MOBILE": "Mobile number cannot be empty",
+    "INVALID_USER": "User not allotted HostelJ",
+    "INVALID_GROUP_NAME": "Group name is invalid",
+    "GROUP_EXISTS": "Group with this name already exists"
+}

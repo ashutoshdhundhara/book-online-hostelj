@@ -8,11 +8,11 @@ var fs = require("fs");
 var path = require("path");
 var Sequelize = require("sequelize");
 var logger = require("lib/logger");
-var config = require("config/config");
+var config = require("config");
 
 try {
-    var sequelize = new Sequelize("HostelJ", "root", "", {
-        host: "localhost",
+    var sequelize = new Sequelize(config.DB_NAME, config.DB_USER, config.DB_PASSWORD, {
+        host: config.DB_HOST,
         dialect: "mysql",
         dialectOptions: {
             ssl: false
@@ -26,7 +26,7 @@ try {
             min: 0,
             idle: 10000
         },
-        logging: config.env === 'development' ? sequelizeLogger : false
+        logging: config.env === 'dev' ? sequelizeLogger : false
     });
 } catch (ex) {
     logger.fatal(ex, "Connection to MySQL failed.");
@@ -34,7 +34,7 @@ try {
 }
 
 /**
- * Looger for sequelize
+ * Logger for sequelize
  *
  * @param string Message
  * @return void
