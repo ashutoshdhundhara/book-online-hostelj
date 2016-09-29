@@ -1,12 +1,14 @@
 #!/usr/bin/env node
 
+require("babel-register");
+
 var http = require("http");
-var config = require("config/config");
+var config = require("config");
 var logger = require("lib/logger");
 var app = require("app");
 var models = require("models")
 
-var port = normalizePort(process.env.PORT || config.PORT);
+var port = normalizePort(config.PORT);
 app.set('port', port);
 
 var server = http.createServer(app);
@@ -19,7 +21,10 @@ models.sequelize
         server.on('listening', onListening);
     })
     .catch(function (ex) {
-        logger.fatal(ex, "Sequelize sync failed. Verify your MySQL credentials and make sure HostelJ database exists.");
+        logger.fatal(ex,
+            "Sequelize sync failed. Verify your MySQL credentials and make sure `%s` database exists.",
+            config.DB_NAME
+        );
         process.exit(1);
     });
 
