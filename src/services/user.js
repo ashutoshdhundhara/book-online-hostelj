@@ -1,4 +1,5 @@
 import { User, UserMasterRecord } from 'models'
+import config from 'config'
 import logger from 'lib/logger'
 
 class UserService {
@@ -6,8 +7,16 @@ class UserService {
     }
 
     getAll(req, res) {
-        User.findAll()
-            .then(function (users) {
+        User.findAll({
+            attributes: {
+                exclude: [
+                    'password',
+                    'uniqueId',
+                    'createdAt',
+                    'updatedAt'
+                ]
+            }
+        }).then(function (users) {
                 res.setHeader('content-type', 'application/json');
                 res.statusCode = 200;
                 res.send(users);
@@ -24,9 +33,12 @@ class UserService {
             if (user.rollNo && typeof user.rollNo === 'number') {
                 UserMasterRecord.findOne({ where: { rollNo: user.rollNo } })
                     .then(masterRecord => {
-                        if (masterRecord) {
+                        if (masterRecord || config.env === 'dev') {
                             User.create(req.body.user)
                                 .then(user => {
+                                    // We shouldn't be sending password back.
+                                    user.password = undefined
+
                                     res.statusCode = 200
                                     res.send({ success: true, user })
                                     res.end()

@@ -23,7 +23,7 @@ models.sequelize
     .catch(function (ex) {
         logger.fatal(ex,
             "Sequelize sync failed. Verify your MySQL credentials and make sure `%s` database exists.",
-            config.DB_NAME
+            config.dbName
         );
         process.exit(1);
     });

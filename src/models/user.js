@@ -1,5 +1,7 @@
 "use strict";
 
+import Utility from 'lib/utility'
+
 export default (sequelize, DataTypes) => {
     var User = sequelize.define(
         "User",
@@ -54,6 +56,27 @@ export default (sequelize, DataTypes) => {
                     }
                 }
             },
+            email: {
+                type: DataTypes.STRING,
+                defaultValue: '',
+                validate: {
+                    isEmail: {
+                        msg: "INVALID_EMAIL"
+                    },
+                    notEmpty: {
+                        msg: "EMPTY_EMAIL"
+                    }
+                }
+            },
+            password: {
+                type: DataTypes.STRING,
+                defaultValue: '',
+                validate: {
+                    notEmpty: {
+                        msg: "EMPTY_PASSWORD"
+                    }
+                }
+            },
             branch: {
                 type: DataTypes.INTEGER,
                 defaultValue: -1,
@@ -80,6 +103,13 @@ export default (sequelize, DataTypes) => {
                     notEmpty: {
                         msg: "EMPTY_MOBILE"
                     }
+                }
+            }
+        },
+        {
+            hooks: {
+                beforeCreate: (user, options) => {
+                    user.password = Utility.calculateSecureHash(user.password)
                 }
             }
         }

@@ -22,6 +22,10 @@ class Utility {
 
         return result
     }
+
+    static calculateSecureHash(value) {
+        return value + '_HASHED'
+    }
 }
 
 export default Utility
