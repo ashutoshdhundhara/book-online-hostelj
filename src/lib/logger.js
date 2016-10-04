@@ -6,8 +6,8 @@ var prettyStdout = new prettystream();
 prettyStdout.pipe(process.stdout);
 
 var logger = bunyan.createLogger({
-    name: 'book-online-hostelj',
-    stream: prettyStdout
+  name: 'book-online-hostelj',
+  stream: prettyStdout
 });
 
 module.exports = logger;

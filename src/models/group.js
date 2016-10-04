@@ -18,7 +18,7 @@ export default (sequelize, DataTypes) => {
                         msg: "INVALID_GROUP_NAME"
                     },
                     isUnique: (value, next) => {
-                        Group.findOne({ where: { name: value }})
+                        Group.findOne({ where: { name: { ilike: value }}})
                             .then((group) => {
                                 if (group)
                                     return next("GROUP_EXISTS")
@@ -29,7 +29,13 @@ export default (sequelize, DataTypes) => {
                             })
                     }
                 }
+            },
+            leaderRollNo: {
+                type: DataTypes.INTEGER,
+                allowNull: false
             }
         }
-    );
+    )
+
+    return Group
 }
